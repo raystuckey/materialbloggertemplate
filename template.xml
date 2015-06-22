@@ -9,55 +9,80 @@ html, body {
   margin:0;
   padding:0;
   height:100%;
-}
-    ...
-  ]]>
+} 
+ ]]>       
 </b:skin>
+
+   <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" />
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+
 </head>
 <body>
 
-<div id='header'>
-  <div class='wrap'>
-    <b:section class='header-section' id='header-section' maxwidgets='1' showaddelement='no'>
-      <b:widget id='Header1' locked='true' mobile='yes' title='datazuul.com' type='Header'/>
-    </b:section>
-  </div>
-</div>
 
-<div id='mainNav'>
-  <div class='wrap'>
-    <b:section class='mainNav-section' id='mainNav-section' maxwidgets='1' showaddelement='yes'>
-      <b:widget id='PageList1' locked='false' title='' type='PageList'></b:widget>
-    </b:section>
-  </div>
-</div>
+  <nav>
+    <div class="nav-wrapper">
+    	<div class="container">
 
-
-<div class="content">
-  <b:section id="content-section" class="content-section" showaddelement="yes">
-    <b:widget id='Blog1' locked='false' mobile='yes' title='Blog' type='Blog'/>
-  </b:section>
-</div>	
-
-
-<div id='sidebar'>
-  <div class='content'>
-    <b:section class='sidebar-section' id='sidebar-section' showaddelement='yes'>
-      <b:widget id='CustomSearch1' locked='false' title='Search This Blog' type='CustomSearch'></b:widget>
-      <b:widget id='BlogArchive1' locked='false' mobile='yes' title='Archive' type='BlogArchive'/>
-    </b:section>
-  </div>
-</div>	
-
-
-<div id='footer'>
-  <div class='wrap'>
-    <div class='content'>
-      <b:section class='footer-section' growth='horizontal' id='footer-section' showaddelement='yes'>
-        <b:widget id='Navbar1' locked='true' mobile='no' title='Navbar' type='Navbar'/>
-      </b:section>
+      <a href="#" class="brand-logo"><data:blog.title/></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="components.html">Components</a></li>
+        <li><a href="javascript.html">JavaScript</a></li>
+      </ul>
     </div>
-  </div>
+    </div>
+  </nav>
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="col s12 m7 l8">
+			  <b:section id="content-section" class="content-section" showaddelement="yes">
+			    <b:widget id='Blog1' locked='false' mobile='yes' title='Blog' type='Blog'/>
+			  </b:section>
+		</div>	
+		<div class="col s12 m5 l4">
+			<div id='sidebar'>
+			  <div class='content'>
+			    <b:section class='sidebar-section' id='sidebar-section' showaddelement='yes'>
+			      <b:widget id='BlogArchive1' locked='false' mobile='yes' title='Archive' type='BlogArchive'/>
+<b:widget id='CustomSearch1' title='Search' type='CustomSearch' locked='false'/>
+<b:widget id='FollowByEmail1' title='Follow By Email' type='FollowByEmail' locked='false' />
+<b:widget id='PopularPosts1' locked='false' title='Popular' type='PopularPosts'/>
+<b:widget id='Label1' type='Label' locked='false' />
+
+			    </b:section>
+			  </div>
+			</div>	
+		</div>
+	</div>
 </div>
+
+
+      <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+			  <b:section class='footer-section-left' growth='horizontal' id='footer-section-left' showaddelement='yes'>
+			  </b:section>
+            </div>
+            <div class="col l4 offset-l2 s12">
+			  <b:section class='footer-section-right' growth='horizontal' id='footer-section-right' showaddelement='yes'>
+</b:section>
+
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2014 Copyright Text
+          </div>
+        </div>
+      </footer>
 </body>
 </html>
