@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+	<title><data:blog.pageTitle/></title>
+<b:skin>
+  <![CDATA[
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+    ...
+  ]]>
+</b:skin>
+</head>
+<body>
+
+<div id='header'>
+  <div class='wrap'>
+    <b:section class='header-section' id='header-section' maxwidgets='1' showaddelement='no'>
+      <b:widget id='Header1' locked='true' mobile='yes' title='datazuul.com' type='Header'/>
+    </b:section>
+  </div>
+</div>
+
+<div id='mainNav'>
+  <div class='wrap'>
+    <b:section class='mainNav-section' id='mainNav-section' maxwidgets='1' showaddelement='yes'>
+      <b:widget id='PageList1' locked='false' title='' type='PageList'></b:widget>
+    </b:section>
+  </div>
+</div>
+
+
+<div class="content">
+  <b:section id="content-section" class="content-section" showaddelement="yes">
+    <b:widget id='Blog1' locked='false' mobile='yes' title='Blog' type='Blog'/>
+  </b:section>
+</div>	
+
+
+<div id='sidebar'>
+  <div class='content'>
+    <b:section class='sidebar-section' id='sidebar-section' showaddelement='yes'>
+      <b:widget id='CustomSearch1' locked='false' title='Search This Blog' type='CustomSearch'></b:widget>
+      <b:widget id='BlogArchive1' locked='false' mobile='yes' title='Archive' type='BlogArchive'/>
+    </b:section>
+  </div>
+</div>	
+
+
+<div id='footer'>
+  <div class='wrap'>
+    <div class='content'>
+      <b:section class='footer-section' growth='horizontal' id='footer-section' showaddelement='yes'>
+        <b:widget id='Navbar1' locked='true' mobile='no' title='Navbar' type='Navbar'/>
+      </b:section>
+    </div>
+  </div>
+</div>
+</body>
+</html>
