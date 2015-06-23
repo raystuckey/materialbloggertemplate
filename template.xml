@@ -9,6 +9,7 @@ html, body {
   margin:0;
   padding:0;
   height:100%;
+  background-color: #eeeeee;
 } 
  ]]>       
 </b:skin>
@@ -19,6 +20,8 @@ html, body {
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
 
+  <!--Font Awesome -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
 </head>
 <body>
 
@@ -27,7 +30,7 @@ html, body {
     <div class="nav-wrapper">
     	<div class="container">
 
-      <a href="#" class="brand-logo"><data:blog.title/></a>
+      <a expr:href="data:blog.homepageUrl" class="brand-logo"><data:blog.title/></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="sass.html">Sass</a></li>
         <li><a href="components.html">Components</a></li>
@@ -36,32 +39,84 @@ html, body {
     </div>
     </div>
   </nav>
-
-
-
 <div class="container">
-	<div class="row">
-		<div class="col s12 m7 l8">
-			  <b:section id="content-section" class="content-section" showaddelement="yes">
-			    <b:widget id='Blog1' locked='false' mobile='yes' title='Blog' type='Blog'/>
-			  </b:section>
-		</div>	
-		<div class="col s12 m5 l4">
-			<div id='sidebar'>
-			  <div class='content'>
-			    <b:section class='sidebar-section' id='sidebar-section' showaddelement='yes'>
-			      <b:widget id='BlogArchive1' locked='false' mobile='yes' title='Archive' type='BlogArchive'/>
-<b:widget id='CustomSearch1' title='Search' type='CustomSearch' locked='false'/>
-<b:widget id='FollowByEmail1' title='Follow By Email' type='FollowByEmail' locked='false' />
-<b:widget id='PopularPosts1' locked='false' title='Popular' type='PopularPosts'/>
-<b:widget id='Label1' type='Label' locked='false' />
+  <div class="row">
+    <div class="col s12 m8">
 
-			    </b:section>
-			  </div>
-			</div>	
-		</div>
-	</div>
+
+      <b:section class='Blog Header' id='header' maxwidgets='1' showaddelement='no'>
+       <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog'>
+        <b:includable id='main'>
+         <b:include name="BlogElements" data='blog'/><br/>
+         <b:include name='Postings'/>
+        </b:includable>
+      
+        <b:includable id='BlogElements' var='b'>
+         <data:b.title/>
+        </b:includable>
+        <b:includable id='Postings'>
+         <b:loop values='data:posts' var='p'>
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">
+                <a expr:href="data:p.url"><data:p.title/></a>
+              </span><br/>
+              <p><span class="grey-text">Posted by <data:p.author/> on <data:p.dateHeader/></span><br/><br/></p>
+              <p><data:p.body/></p>
+            </div>
+
+            <!-- main page post footer -->
+                <b:if cond='data:p.hasJumpLink'>
+            <div class="card-action">
+                  <a expr:href='data:p.url + &quot;#more&quot;'><data:p.jumpText/></a>
+            </div>
+                </b:if>
+
+            <!-- post page post footer -->
+              <b:if cond='data:blog.pageType != &quot;index&quot;'>
+
+            <div class="card-action">
+                <b:if cond='data:olderPageUrl'>
+                  <a expr:href='data:olderPageUrl'><i class="fa fa-long-arrow-left"></i> <data:olderPageTitle/></a>
+                </b:if>
+                <b:if cond='data:blog.pageType != &quot;index&quot;'>
+                  <a href='/'><i class="fa fa-home"></i> Home</a>
+                </b:if>
+                <b:if cond='data:newerPageUrl'>
+                  <a expr:href='data:newerPageUrl'><data:newerPageTitle/> <i class="fa fa-long-arrow-right"></i></a>
+                </b:if>
+                            </div>
+
+              </b:if>
+          </div>
+         </b:loop>   
+        </b:includable>
+        <b:includable id='Comments'>
+          <data:p.comments/>
+        </b:includable>
+       </b:widget>
+      </b:section>
+
+      </div>
+    <div class="col s12 m4">
+      <div id='sidebar'>
+        <div class='content'>
+          <b:section class='sidebar-section' id='sidebar-section' showaddelement='yes'>
+            <b:widget id='BlogArchive1' locked='false' mobile='yes' title='Archive' type='BlogArchive'/>
+            <b:widget id='CustomSearch1' title='Search' type='CustomSearch' locked='false'/>
+            <b:widget id='FollowByEmail1' title='Follow By Email' type='FollowByEmail' locked='false' />
+            <b:widget id='PopularPosts1' locked='false' title='Popular' type='PopularPosts'/>
+            <b:widget id='Label1' type='Label' locked='false' />
+          </b:section>
+        </div>
+      </div>  
+    </div>
+  </div>
 </div>
+
+
+
+
 
 
       <footer class="page-footer">
